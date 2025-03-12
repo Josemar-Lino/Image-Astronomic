@@ -1,0 +1,56 @@
+/* Estilos gerais */
+body {
+    background-color: #1a202c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 16px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+#content {
+    max-width: 700px;
+    padding: 20px;
+    background-color: #2d3748;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#date {
+    color: #a0aec0;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.media-content {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+iframe.media-content {
+    height: 300px;
+}
+
+#explanation {
+    color: #cbd5e0;
+    margin-top: 20px;
+    line-height: 1.5;
+}
