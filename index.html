@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -70,3 +71,77 @@
 </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA APOD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="google_translate_element"></div> <!-- Elemento de tradução -->
+    <h1>Astronomy Picture of the Day</h1>
+    <div id="content">
+        <h2 id="title"></h2>
+        <p id="date"></p>
+        <div id="media"></div>
+        <p id="explanation"></p>
+    </div>
+    <script>
+        // Substitua pela sua chave pessoal para evitar limites de requisição
+        const API_KEY = 'sua chave';
+        const URL = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
+
+        // Função assíncrona para buscar os dados da API
+        async function fetchAPOD() {
+            try {
+                // Faz a requisição para a API da NASA
+                const response = await fetch(URL);
+                // Converte a resposta para JSON
+                const data = await response.json();
+                
+                // Atualiza o título da imagem/vídeo
+                document.getElementById('title').textContent = data.title;
+                // Atualiza a data da imagem/vídeo
+                document.getElementById('date').textContent = data.date;
+                // Atualiza a explicação do conteúdo
+                document.getElementById('explanation').textContent = data.explanation;
+
+                // Obtém a referência do elemento onde será exibida a mídia
+                const mediaDiv = document.getElementById('media');
+                // Limpa qualquer conteúdo anterior
+                mediaDiv.innerHTML = '';
+                
+                // Verifica o tipo de mídia e exibe a correspondente
+                if (data.media_type === 'image') {
+                    // Cria um elemento de imagem e define seus atributos
+                    const img = document.createElement('img');
+                    img.src = data.url;
+                    img.alt = data.title;
+                    img.classList.add('media-content');
+                    // Adiciona a imagem ao contêiner de mídia
+                    mediaDiv.appendChild(img);
+                } else if (data.media_type === 'video') {
+                    // Cria um elemento iframe para exibir vídeos
+                    const iframe = document.createElement('iframe');
+                    iframe.src = data.url;
+                    iframe.classList.add('media-content');
+                    iframe.allowFullscreen = true; // Permite tela cheia
+                    // Adiciona o vídeo ao contêiner de mídia
+                    mediaDiv.appendChild(iframe);
+                }
+            } catch (error) {
+                // Captura e exibe erros no console
+                console.error('Erro ao buscar APOD:', error);
+            }
+        }
+
+        // Chama a função para buscar os dados ao carregar a página
+        fetchAPOD();
+    </script>
+</body>
+
+</html>
+>>>>>>> 17817783d4cbb1eb3e4e4ea36381dbb76ccc23f8
